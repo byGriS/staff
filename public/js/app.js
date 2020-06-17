@@ -2889,7 +2889,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     getEmployees: function getEmployees() {
-      this.$http.get("/api/employee", {
+      this.$http.get(this.$store.state.host + "/api/employee", {
         params: {
           page: this.paginateData.page
         }
@@ -2907,7 +2907,7 @@ __webpack_require__.r(__webpack_exports__);
       if (this.emptyFilter) {
         this.getEmployees();
       } else {
-        this.$http.get("/api/search", {
+        this.$http.get(this.$store.state.host + "/api/search", {
           params: {
             filter: this.filter,
             page: this.paginateData.page
@@ -57225,7 +57225,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     filter: {
       name: ""
     },
-    host: "http://staff.loc"
+    host: "http://fh7929y8.bget.ru/staff/public"
   }
 }));
 

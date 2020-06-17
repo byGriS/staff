@@ -8,6 +8,6 @@ export default new Vuex.Store({
     filter: {
       name: ""
     },
-    host: "http://staff.loc"
+    host: "http://fh7929y8.bget.ru/staff/public"
   }
 })

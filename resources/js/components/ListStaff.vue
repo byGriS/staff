@@ -112,7 +112,7 @@ export default {
   methods: {
     getEmployees() {
       this.$http
-        .get("/api/employee",
+        .get(this.$store.state.host + "/api/employee",
           {
             params: {
               page: this.paginateData.page
@@ -133,7 +133,7 @@ export default {
         this.getEmployees();
       }else{
       this.$http
-        .get("/api/search",
+        .get(this.$store.state.host + "/api/search",
           {params:
             {
               filter: this.filter,
