@@ -1,7 +1,7 @@
 <template>
   <nav class="headerWrap navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container">
-      <a class="navbar-brand" href="/">Staff</a>
+      <a class="navbar-brand" :href="host">Staff</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -17,7 +17,7 @@
         <ul class="navbar-nav mr-auto"></ul>
         <ul class="navbar-nav ml-auto">
           <li class="d-flex align-items-center">
-            <a href="/employee/create" class="btn btn-info btn-sm">Добавить сотрудника</a>
+            <a :href="host + '/employee/create'" class="btn btn-info btn-sm">Добавить сотрудника</a>
           </li>
           <li class="nav-item dropdown">
             <a
@@ -55,6 +55,11 @@
 <script>
 export default {
   props: ['csrftoken', 'userName', 'hrefLogout'],
+  computed:{
+    host(){
+      return this.$store.state.host;
+    }
+  },
   mounted() {
   }
 }

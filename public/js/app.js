@@ -2320,40 +2320,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['employeeInput'],
   data: function data() {
@@ -2683,7 +2649,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['employee'],
   computed: {
     hrefEdit: function hrefEdit() {
-      return "/employee/" + this.employee.id + "/edit";
+      return this.$store.state.host + "/employee/" + this.employee.id + "/edit";
     }
   },
   mounted: function mounted() {
@@ -2758,6 +2724,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['csrftoken', 'userName', 'hrefLogout'],
+  computed: {
+    host: function host() {
+      return this.$store.state.host;
+    }
+  },
   mounted: function mounted() {}
 });
 
@@ -3005,7 +2976,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     sendForm: function sendForm(e) {
       localStorage.removeItem('token');
-      this.$http.post('/api/login', {
+      this.$http.post(this.$store.state.host + '/api/login', {
         'email': this.inputEmail,
         'password': this.inputPass
       }).then(function (response) {
@@ -41209,7 +41180,7 @@ var render = function() {
     },
     [
       _c("div", { staticClass: "container" }, [
-        _c("a", { staticClass: "navbar-brand", attrs: { href: "/" } }, [
+        _c("a", { staticClass: "navbar-brand", attrs: { href: _vm.host } }, [
           _vm._v("Staff")
         ]),
         _vm._v(" "),
@@ -41225,7 +41196,16 @@ var render = function() {
             _c("ul", { staticClass: "navbar-nav mr-auto" }),
             _vm._v(" "),
             _c("ul", { staticClass: "navbar-nav ml-auto" }, [
-              _vm._m(1),
+              _c("li", { staticClass: "d-flex align-items-center" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-info btn-sm",
+                    attrs: { href: _vm.host + "/employee/create" }
+                  },
+                  [_vm._v("Добавить сотрудника")]
+                )
+              ]),
               _vm._v(" "),
               _c("li", { staticClass: "nav-item dropdown" }, [
                 _c(
@@ -41315,21 +41295,6 @@ var staticRenderFns = [
       },
       [_c("span", { staticClass: "navbar-toggler-icon" })]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "d-flex align-items-center" }, [
-      _c(
-        "a",
-        {
-          staticClass: "btn btn-info btn-sm",
-          attrs: { href: "/employee/create" }
-        },
-        [_vm._v("Добавить сотрудника")]
-      )
-    ])
   }
 ]
 render._withStripped = true

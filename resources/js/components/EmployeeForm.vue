@@ -28,13 +28,9 @@
       </div>
       <div class="col-md-4">
         <div class="form-group row">
-          <label  class="col-sm-4 col-form-label">Должность</label>
+          <label class="col-sm-4 col-form-label">Должность</label>
           <div class="col-sm-8 marginVauto">
-            <input
-              autocomplete="off"
-              class="form-control form-control-sm"
-              v-model="employee.post"
-            />
+            <input autocomplete="off" class="form-control form-control-sm" v-model="employee.post" />
           </div>
         </div>
       </div>
@@ -58,11 +54,7 @@
         <div class="form-group row">
           <label class="col-sm-4 col-form-label">Имя</label>
           <div class="col-sm-8 marginVauto">
-            <input
-              autocomplete="off"
-              class="form-control form-control-sm"
-              v-model="employee.name"
-            />
+            <input autocomplete="off" class="form-control form-control-sm" v-model="employee.name" />
           </div>
         </div>
       </div>
@@ -110,9 +102,7 @@
 
     <!-- мето рождения -->
     <div class="form-group row">
-      <label
-        class="col-sm-5 col-form-label"
-      >Место рождения (село, город, край, область, республика)</label>
+      <label class="col-sm-5 col-form-label">Место рождения (село, город, край, область, республика)</label>
       <div class="col-sm-7 marginVauto">
         <input
           autocomplete="off"
@@ -128,11 +118,7 @@
         class="col-sm-5 col-form-label"
       >Адрес (место жительства): индекс, область, город, улица, дом, квартира</label>
       <div class="col-sm-7 marginVauto">
-        <input
-          autocomplete="off"
-          class="form-control form-control-sm"
-          v-model="employee.address"
-        />
+        <input autocomplete="off" class="form-control form-control-sm" v-model="employee.address" />
       </div>
     </div>
 
@@ -168,11 +154,7 @@
         <div class="form-group row">
           <label class="col-sm-2 col-form-label">Сотовый тел.</label>
           <div class="col-sm-10 marginVauto">
-            <input
-              autocomplete="off"
-              class="form-control form-control-sm"
-              v-model="employee.phone"
-            />
+            <input autocomplete="off" class="form-control form-control-sm" v-model="employee.phone" />
           </div>
         </div>
       </div>
@@ -182,11 +164,7 @@
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Паспортные данные</label>
       <div class="col-sm-10 marginVauto">
-        <input
-          autocomplete="off"
-          class="form-control form-control-sm"
-          v-model="employee.passport"
-        />
+        <input autocomplete="off" class="form-control form-control-sm" v-model="employee.passport" />
       </div>
     </div>
 
@@ -339,11 +317,7 @@
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Спортивные увлечения/достижения</label>
       <div class="col-sm-10 marginVauto">
-        <input
-          autocomplete="off"
-          class="form-control form-control-sm"
-          v-model="employee.sport"
-        />
+        <input autocomplete="off" class="form-control form-control-sm" v-model="employee.sport" />
       </div>
     </div>
 
@@ -351,11 +325,7 @@
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Знание компьютера</label>
       <div class="col-sm-10 marginVauto">
-        <input
-          autocomplete="off"
-          class="form-control form-control-sm"
-          v-model="employee.computer"
-        />
+        <input autocomplete="off" class="form-control form-control-sm" v-model="employee.computer" />
       </div>
     </div>
 
@@ -363,11 +333,7 @@
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Служба в армии</label>
       <div class="col-sm-10 marginVauto">
-        <input
-          autocomplete="off"
-          class="form-control form-control-sm"
-          v-model="employee.army"
-        />
+        <input autocomplete="off" class="form-control form-control-sm" v-model="employee.army" />
       </div>
     </div>
 
@@ -448,8 +414,8 @@ export default {
       }
     }
   },
-  computed:{
-    canChange(){
+  computed: {
+    canChange() {
       return this.employeeInput != null;
     }
   },
@@ -478,25 +444,25 @@ export default {
           employee: this.employee
         })
         .then(function (response) {
-          window.location.href = this.$store.state.host+"/";
+          window.location.href = this.$store.state.host + "/";
         })
     },
-    update(){
+    update() {
       this.$http
         .put(this.$store.state.host + "/api/employee/" + this.employee.id, {
           employee: this.employee
         })
         .then(function (response) {
-          window.location.href = this.$store.state.host+"/employee/"+this.employee.id;
+          window.location.href = this.$store.state.host + "/employee/" + this.employee.id;
         })
     },
-    deleteEmp(){
-      if (confirm("Удалить данного сотрудника?")){
+    deleteEmp() {
+      if (confirm("Удалить данного сотрудника?")) {
         this.$http
           .delete(this.$store.state.host + "/api/employee/" + this.employee.id)
-          .then(function (response){
+          .then(function (response) {
             //console.log(response.data);
-            window.location.href = this.$store.state.host+"/";
+            window.location.href = this.$store.state.host + "/";
           })
       }
     }

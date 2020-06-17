@@ -64,7 +64,7 @@ export default {
     sendForm(e) {
       localStorage.removeItem('token');
       this.$http
-        .post('/api/login', {
+        .post(this.$store.state.host + '/api/login', {
           'email': this.inputEmail,
           'password': this.inputPass
         })

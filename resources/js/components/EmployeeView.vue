@@ -212,7 +212,7 @@ export default {
   props: ['employee'],
   computed:{
     hrefEdit(){
-      return "/employee/" + this.employee.id + "/edit";
+      return this.$store.state.host + "/employee/" + this.employee.id + "/edit";
     }
   },
   mounted() {
